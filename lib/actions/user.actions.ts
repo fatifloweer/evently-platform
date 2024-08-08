@@ -1,23 +1,21 @@
 'use server'
 
-import { revalidatePath } from 'next/cache'
+// import { revalidatePath } from 'next/cache'
 
 import { connectToDatabase } from '@/lib/database'
 import User from '@/lib/database/models/user.model'
+import Order from '@/lib/database/models/order.model'
 import Event from '@/lib/database/models/event.model'
-import Order from '../database/models/order.model'
 import { handleError } from '@/lib/utils'
+
 import { CreateUserParams, UpdateUserParams } from '@/types'
 
 export async function createUser(user: CreateUserParams) {
   try {
-    // 检查用户名是否已存在
     await connectToDatabase()
 
     const newUser = await User.create(user)
-
     return JSON.parse(JSON.stringify(newUser))
-
   } catch (error) {
     handleError(error)
   }
@@ -74,7 +72,7 @@ export async function deleteUser(clerkId: string) {
 
     // Delete user
     const deletedUser = await User.findByIdAndDelete(userToDelete._id)
-    revalidatePath('/')
+    // revalidatePath('/')
 
     return deletedUser ? JSON.parse(JSON.stringify(deletedUser)) : null
   } catch (error) {

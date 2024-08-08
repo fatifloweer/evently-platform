@@ -3,7 +3,7 @@
 import { headerLinks } from '@/constants';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { use } from 'react';
+import React from 'react';
 
 function NavItems() {
     const pathname = usePathname();

@@ -14,7 +14,12 @@ export default authMiddleware({
     '/api/uploadthing',
     '/assets/images/logo.svg',
     '/favicon.ico',
-    '/assets/images/dotted-pattern.png'
+    '/assets/images/dotted-pattern.png',
+    '/assets/icons/upload.svg',
+    '/assets/icons/location-grey.svg',
+    '/assets/icons/calendar.svg',
+    '/assets/icons/dollar.svg',
+    '/assets/icons/link.svg',
 
   ]
 });
